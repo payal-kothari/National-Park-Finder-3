@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NPF_3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wXP-dF-JET">
+                                <rect key="frame" x="0.0" y="20" width="375" height="597"/>
+                            </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xsn-uR-BV6">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="PQe-Zx-RKG"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem id="ra5-eH-B6i"/>
+                                    <barButtonItem systemItem="refresh" id="orL-N5-iJO">
+                                        <connections>
+                                            <action selector="refreshClicked:" destination="BYZ-38-t0r" id="mIk-rh-tEU"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="zoom out" id="hBH-Sl-7pC">
+                                        <connections>
+                                            <action selector="zoomOut:" destination="BYZ-38-t0r" id="TTs-vG-lbo"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="8Cr-4U-yrn"/>
+                                    <barButtonItem style="plain" id="3bc-bs-I6R">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="al7-XX-Wzt">
+                                            <rect key="frame" x="132" y="10" width="227" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="Standard"/>
+                                                <segment title="Satellite"/>
+                                                <segment title="Hybrid"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="segmentedAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="Yhl-rI-Xe3"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="epJ-2s-IoA">
+                                <rect key="frame" x="169" y="287" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.23226291769847163" green="0.35228853271392457" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Xsn-uR-BV6" firstAttribute="trailing" secondItem="wXP-dF-JET" secondAttribute="trailing" id="LLM-df-3zR"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wXP-dF-JET" secondAttribute="bottom" constant="50" id="avG-Fd-dwB"/>
+                            <constraint firstItem="wXP-dF-JET" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bNP-xS-of0"/>
+                            <constraint firstAttribute="trailing" secondItem="wXP-dF-JET" secondAttribute="trailing" id="esh-x5-efS"/>
+                            <constraint firstItem="Xsn-uR-BV6" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="fwN-ca-CsF"/>
+                            <constraint firstItem="wXP-dF-JET" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="p62-N7-A3S"/>
+                            <constraint firstItem="Xsn-uR-BV6" firstAttribute="leading" secondItem="wXP-dF-JET" secondAttribute="leading" id="yhp-yy-Sxs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="epJ-2s-IoA" id="baY-2m-p4T"/>
+                        <outlet property="mapView" destination="wXP-dF-JET" id="dtE-6M-Vnz"/>
+                        <outlet property="refreshBtn" destination="orL-N5-iJO" id="U83-kJ-zSI"/>
+                        <outlet property="toolBar" destination="Xsn-uR-BV6" id="Z1o-cD-b6U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
+        </scene>
+    </scenes>
+</document>
