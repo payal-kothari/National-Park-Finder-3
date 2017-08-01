@@ -1,6 +1,6 @@
 # National Park Finder-3
 
-This application shows national parks in the US.
+This iOS application shows national parks in the US.
 
 # Featurs:
   - User can zoom in to his/her current location and zoom out of the current location with provided two buttons.
